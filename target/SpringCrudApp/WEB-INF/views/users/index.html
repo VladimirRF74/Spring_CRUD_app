@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1251">
+    <title>users</title>
+</head>
+<body>
+<div>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="msg : ${message}">
+            <td><a th:href="@{users/new/{id}(id=${msg.getId()})}" th:utext="${msg.getName()}"></a></td>
+            <td><a th:href="@{users/new/{id}(id=${msg.getId()})}" th:utext="${msg.getLastName()}"></a></td>
+            <td th:utext="${msg.getEmail()}"></td>
+        </tr>
+    </table>
+    <br/>
+<form th:action="@{users/serves}">
+    <input type="submit" value="Добавить" th:href="@{users/serves}"/>
+</form>
+</div>
+
+<div>
+
+</div>
+</body>
+</html>
